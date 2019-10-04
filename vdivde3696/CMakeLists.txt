@@ -1,0 +1,5 @@
+
+add_ov_library(vdivde3696 FALSE)
+ov_library_includes(vdivde3696 fb)
+
+target_link_libraries(vdivde3696 -lm)
