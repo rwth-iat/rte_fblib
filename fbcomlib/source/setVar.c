@@ -53,7 +53,7 @@ OV_DLLFNCEXPORT OV_RESULT fbcomlib_setVar_doReset_set(
     {
     	if(pobj->p_apiSet.v_Reset)
     		ksapi_KSApiCommon_Reset_set((OV_INSTPTR_ksapi_KSApiCommon)&(pobj->p_apiSet), FALSE);
-		ksapi_KSApiCommon_Reset_set((OV_INSTPTR_ksapi_KSApiCommon)&(pobj->p_apiSet), TRUE);
+    	ksapi_KSApiCommon_Reset_set((OV_INSTPTR_ksapi_KSApiCommon)&(pobj->p_apiSet), TRUE);
     	fbcomlib_FBComCommon_resetAbstract(Ov_StaticPtrCast(fbcomlib_FBComCommon, pobj));
     	Ov_ForEachChildEx(ov_containment, pobj, fbcomlibVar, fbcomlib_pkgSetVariable)
     	{
