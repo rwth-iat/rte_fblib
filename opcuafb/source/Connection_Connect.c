@@ -24,7 +24,7 @@
 
 
 #include "opcuafb.h"
-#include "libov/ov_macros.h"
+#include "ov_macros.h"
 #include "fb_namedef.h"
 
 OV_DLLFNCEXPORT void opcuafb_Connect_startup(

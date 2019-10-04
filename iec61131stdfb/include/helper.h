@@ -42,8 +42,8 @@
 
 #include "iec61131stdfb.h"
 #include "fb.h"
-#include "libov/ov_ov.h"
-#include "libov/ov_macros.h"
+#include "ov_ov.h"
+#include "ov_macros.h"
 
 
 OV_BOOL 

@@ -25,7 +25,7 @@
 
 
 #include "opcuafb.h"
-#include "libov/ov_macros.h"
+#include "ov_macros.h"
 
 OV_DLLFNCEXPORT void opcuafb_object_startup(
 		OV_INSTPTR_ov_object 	pobj

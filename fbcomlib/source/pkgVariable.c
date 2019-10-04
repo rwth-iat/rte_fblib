@@ -22,7 +22,7 @@
 
 
 #include "fbcomlib.h"
-#include "libov/ov_macros.h"
+#include "ov_macros.h"
 
 
 OV_DLLFNCEXPORT OV_RESULT fbcomlib_pkgVariable_path_set(

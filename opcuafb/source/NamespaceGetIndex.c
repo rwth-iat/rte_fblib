@@ -25,7 +25,7 @@
 
 
 #include "opcuafb.h"
-#include "libov/ov_macros.h"
+#include "ov_macros.h"
 #include "fb_namedef.h"
 
 OV_DLLFNCEXPORT OV_RESULT opcuafb_NamespaceGetIndex_Execute_set(

@@ -62,7 +62,7 @@
 #endif
 
 #include "ACPLTlab003lindyn.h"
-#include "libov/ov_macros.h"
+#include "ov_macros.h"
 
 OV_RESULT OV_DLLFNCEXPORT ACPLTlab003lindyn_int_constructor(
 	OV_INSTPTR_ov_object	pobj

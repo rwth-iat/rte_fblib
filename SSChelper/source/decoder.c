@@ -22,7 +22,7 @@
 
 
 #include "SSChelper.h"
-#include "libov/ov_macros.h"
+#include "ov_macros.h"
 
 
 OV_DLLFNCEXPORT OV_RESULT SSChelper_decoder_CMD_set(

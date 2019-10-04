@@ -41,10 +41,10 @@
 
 
 #include "iec61131stdfb.h"
-#include "libov/ov_macros.h"
-#include "libov/ov_logfile.h"
-#include "libov/ov_malloc.h"
-#include "libov/ov_string.h"
+#include "ov_macros.h"
+#include "ov_logfile.h"
+#include "ov_malloc.h"
+#include "ov_string.h"
 
 #define OV_DEBUG
 

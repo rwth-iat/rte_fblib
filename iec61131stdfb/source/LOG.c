@@ -43,8 +43,8 @@
 
 #include "iec61131stdfb.h"
 #include "stdfb_macros.h"
-#include "libov/ov_macros.h"
-#include "libov/ov_logfile.h"
+#include "ov_macros.h"
+#include "ov_logfile.h"
 #include "helper.h"
 
 #include <math.h>

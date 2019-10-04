@@ -23,8 +23,8 @@
 
 
 #include "ACPLTlab003lindyn.h"
-#include "libov/ov_macros.h"
-#include "libov/ov_time.h"
+#include "ov_macros.h"
+#include "ov_time.h"
 
 
 OV_DLLFNCEXPORT OV_RESULT ACPLTlab003lindyn_diff_constructor(

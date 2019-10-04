@@ -56,7 +56,7 @@
 *   -----------------
 */
 #include "vdivde3696.h"
-#include "libov/ov_macros.h"
+#include "ov_macros.h"
 
 OV_RESULT OV_DLLFNCEXPORT vdivde3696_expt_constructor(
 	OV_INSTPTR_ov_object	pobj

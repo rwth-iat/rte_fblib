@@ -22,8 +22,8 @@
 
 
 #include "SSChelper.h"
-#include "libov/ov_macros.h"
-#include "libov/ov_path.h"
+#include "ov_macros.h"
+#include "ov_path.h"
 
 
 OV_DLLFNCEXPORT void SSChelper_getSCUinfo_typemethod(

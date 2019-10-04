@@ -5,12 +5,12 @@
  *      Author: julian
  */
 #include "SSChelper.h"
-#include "libov/ov_macros.h"
+#include "ov_macros.h"
 
-#include "libov/ov_path.h"
-#include "libov/ov_memstack.h"
-#include "libov/ov_result.h"
-#include "libov/ov_logfile.h"
+#include "ov_path.h"
+#include "ov_memstack.h"
+#include "ov_result.h"
+#include "ov_logfile.h"
 
 #include "fb_namedef.h"
 

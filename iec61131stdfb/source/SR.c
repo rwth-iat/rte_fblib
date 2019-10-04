@@ -41,7 +41,7 @@
 
 
 #include "iec61131stdfb.h"
-#include "libov/ov_macros.h"
+#include "ov_macros.h"
 
 
 OV_DLLFNCEXPORT void iec61131stdfb_SR_typemethod(

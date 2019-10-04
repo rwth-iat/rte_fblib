@@ -24,7 +24,7 @@
 #include "SSChelper.h"
 #include "utilities.h"
 
-#include "libov/ov_macros.h"
+#include "ov_macros.h"
 
 OV_DLLFNCEXPORT void SSChelper_getVar_typemethod(
 	OV_INSTPTR_fb_functionblock	pfb,

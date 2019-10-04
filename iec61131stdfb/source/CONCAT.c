@@ -41,9 +41,9 @@
 
 
 #include "iec61131stdfb.h"
-#include "libov/ov_macros.h"
-#include "libov/ov_string.h"
-#include "libov/ov_logfile.h"
+#include "ov_macros.h"
+#include "ov_string.h"
+#include "ov_logfile.h"
 
 
 OV_DLLFNCEXPORT OV_RESULT iec61131stdfb_CONCAT_IN1_set(
