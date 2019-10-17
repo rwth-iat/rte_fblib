@@ -6,8 +6,9 @@ project(rte_fblib)
 find_package(RTE)
 
 # Include ov helper functions and definitions
-include(${RTE_DIR}/cmake/ov_functions.cmake)
-include(${RTE_DIR}/cmake/ov_definitions.cmake)
+get_target_property(RTE_CMAKE_DIR ov RTE_CMAKE_DIR)
+include(${RTE_CMAKE_DIR}/ov_functions.cmake)
+include(${RTE_CMAKE_DIR}/ov_definitions.cmake)
 
 
 # The standard function block libraries
