@@ -1,0 +1,19 @@
+image: registry.git.rwth-aachen.de/acplt/rte-tools/rte-build-docker-image/image
+
+build:
+  stage: build
+  script:
+    # First clone and build rte (using equally named branch or `develop`)
+    - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@git.rwth-aachen.de/acplt/rte-tools/rte.git
+    - cd rte
+    - git checkout ${CI_COMMIT_REF_NAME} || git checkout ov3
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make -j$(nproc)
+    # Now, build the fblib libraries
+    - cd ../..
+    - mkdir build
+    - cd build
+    - cmake -DCMAKE_PREFIX_PATH="$(pwd)/../rte/build" ..
+    - make -j$(nproc)
