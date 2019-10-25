@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(rte_fblib)
+project(rte_fblib C)
 
 # Include ov core (if it isn't already included)
 find_package(RTE)
