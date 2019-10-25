@@ -44,6 +44,9 @@
 *   
 *   Similar to standardfunction TP in IEC 1131-3.
 */
+#ifndef OV_COMPILE_LIBRARY_vdivde3696
+#define OV_COMPILE_LIBRARY_vdivde3696
+#endif
 /*
 *   C-Includes
 *   ----------
@@ -62,7 +65,7 @@
 #include "vdivde3696.h"
 #include "ov_macros.h"
 
-OV_RESULT OV_DLLFNCEXPORT vdivde3696_tp1_constructor(
+OV_DLLFNCEXPORT OV_RESULT vdivde3696_tp1_constructor(
 	OV_INSTPTR_ov_object	pobj
 ) {
 	OV_RESULT res;
@@ -75,7 +78,7 @@ OV_RESULT OV_DLLFNCEXPORT vdivde3696_tp1_constructor(
 	return OV_ERR_OK;
 }
 
-void OV_DLLFNCEXPORT vdivde3696_tp1_typemethod(
+OV_DLLFNCEXPORT void vdivde3696_tp1_typemethod(
 	OV_INSTPTR_fb_functionblock	pfb,
 	OV_TIME						*pltc
 ) {

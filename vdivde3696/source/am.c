@@ -48,7 +48,7 @@
 *     "MF" message if falling edge
 *     "MB" message if rising or falling edge   
 *
-*   note : VDI/VDE 3696 doesn´t specify any outputs.
+*   note : VDI/VDE 3696 doesnï¿½t specify any outputs.
 *          The overall idea of the functionblock is to
 *          create text messages which specify what occured, when it occured ,how 
 *          important the occurance is and if the generated message is just a message 
@@ -59,6 +59,9 @@
 *          QA determines if Q is an alarm- (TRUE) or a message- (FALSE) signal.
 *          There is no extra priority output.
 */
+#ifndef OV_COMPILE_LIBRARY_vdivde3696
+#define OV_COMPILE_LIBRARY_vdivde3696
+#endif
 /*
 *   C-Includes
 *   ----------
@@ -76,7 +79,7 @@
 #include "vdivde3696.h"
 #include "ov_macros.h"
 
-OV_RESULT OV_DLLFNCEXPORT vdivde3696_am_constructor(
+OV_DLLFNCEXPORT OV_RESULT vdivde3696_am_constructor(
 	OV_INSTPTR_ov_object	pobj
 ) {
 	OV_RESULT res;
@@ -92,7 +95,7 @@ OV_RESULT OV_DLLFNCEXPORT vdivde3696_am_constructor(
 	return OV_ERR_OK;
 }
 
-void OV_DLLFNCEXPORT vdivde3696_am_typemethod(
+OV_DLLFNCEXPORT void vdivde3696_am_typemethod(
 	OV_INSTPTR_fb_functionblock	pfb,
 	OV_TIME						*pltc
 ) {

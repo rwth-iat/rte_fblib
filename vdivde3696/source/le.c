@@ -48,6 +48,9 @@
 *          To circumvent the problem DELTA_MIN is defined.
 *          If large numbers (above 10000) are compared DELTA_MIN has to be altered (1E-4 or larger). 
 */
+#ifndef OV_COMPILE_LIBRARY_vdivde3696
+#define OV_COMPILE_LIBRARY_vdivde3696
+#endif
 /*
 *   C-Includes
 *   ----------
@@ -65,7 +68,7 @@
 #include "vdivde3696.h"
 #include "ov_macros.h"
 
-OV_RESULT OV_DLLFNCEXPORT vdivde3696_le_constructor(
+OV_DLLFNCEXPORT OV_RESULT vdivde3696_le_constructor(
 	OV_INSTPTR_ov_object	pobj
 ) {
 	OV_RESULT res;
@@ -78,7 +81,7 @@ OV_RESULT OV_DLLFNCEXPORT vdivde3696_le_constructor(
 	return OV_ERR_OK;
 }
 
-void OV_DLLFNCEXPORT vdivde3696_le_typemethod(
+OV_DLLFNCEXPORT void vdivde3696_le_typemethod(
 	OV_INSTPTR_fb_functionblock	pfb,
 	OV_TIME						*pltc
 ) {

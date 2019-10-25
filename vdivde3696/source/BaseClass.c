@@ -50,7 +50,7 @@
 	getAccessor counter
 ***********************************************************************/
 
-OV_INT OV_DLLFNCEXPORT vdivde3696_BaseClass_counter_get(
+OV_DLLFNCEXPORT OV_INT vdivde3696_BaseClass_counter_get(
 	OV_INSTPTR_vdivde3696_BaseClass	pfb
 )	{
 	return pfb->v_methcount;
@@ -81,7 +81,7 @@ OV_INT OV_DLLFNCEXPORT vdivde3696_BaseClass_counter_get(
 	getAccessor eno
 ***********************************************************************/
 
-OV_BOOL OV_DLLFNCEXPORT vdivde3696_BaseClass_eno_get(
+OV_DLLFNCEXPORT OV_BOOL vdivde3696_BaseClass_eno_get(
 	OV_INSTPTR_vdivde3696_BaseClass	pfb
 )	{
 	return pfb->v_en;

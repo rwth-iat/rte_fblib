@@ -35,7 +35,7 @@
 *		-	Erstellung
 *	
 *	23-September-2004		St
-*		-	Logik gemäß IEC 1131-3
+*		-	Logik gemï¿½ï¿½ IEC 1131-3
 *
 ***********************************************************************/
 
@@ -54,7 +54,7 @@
 	Typemethod
 ***********************************************************************/
 
-void OV_DLLFNCEXPORT vdivde3696_xor_typemethod(
+OV_DLLFNCEXPORT void vdivde3696_xor_typemethod(
 	OV_INSTPTR_fb_functionblock	pfb,
 	OV_TIME								*pltc
 )	{

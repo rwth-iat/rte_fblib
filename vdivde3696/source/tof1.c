@@ -22,7 +22,7 @@
 *
 *	File
 *	-----
-*	tof1.c					Ausschaltverzögerung (off delay)
+*	tof1.c					Ausschaltverzï¿½gerung (off delay)
 *
 *	Autoren:
 *	--------
@@ -50,7 +50,7 @@
 	Typemethod
 ***********************************************************************/
 
-void OV_DLLFNCEXPORT vdivde3696_tof1_typemethod(
+OV_DLLFNCEXPORT void vdivde3696_tof1_typemethod(
 	OV_INSTPTR_fb_functionblock	pfb,
 	OV_TIME								*pltc
 )	{
