@@ -1,5 +1,5 @@
 
-add_ov_library(iec61131stdfb FALSE)
+add_ov_library(iec61131stdfb)
 ov_library_includes(iec61131stdfb fb)
 
 if(UNIX)
