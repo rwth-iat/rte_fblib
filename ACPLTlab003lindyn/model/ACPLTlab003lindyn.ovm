@@ -44,7 +44,7 @@ LIBRARY ACPLTlab003lindyn
 	VERSION   = "V0.0.1 (24-Apr-2013)";
 	AUTHOR    = "U.Epple";
 	COPYRIGHT = "Copyright (C) 2005 Lehrstuhl fuer Prozessleittechnik, RWTH Aachen";
-	COMMENT   = "Funktionsbausteine für einfache lineare Dynamik";
+	COMMENT   = "Funktionsbausteine fÃ¼r einfache lineare Dynamik";
 	
 /***********************************************************************
 	int - einfacher Integrator	
@@ -52,22 +52,22 @@ LIBRARY ACPLTlab003lindyn
 
 CLASS int : CLASS fb/functionblock
 	IS_INSTANTIABLE;
+	FLAGS="i";
 	VARIABLES
-		EN : INT FLAGS = "i" COMMENT = "enables Run-Modus";
+		EN : INT FLAGS = "i" COMMENT = "enables Run-Modus" INITIALVALUE=1;
 		ENO : INT FLAGS = "o" COMMENT = "shows run-modus";
 		DX : SINGLE FLAGS = "i" COMMENT = "dx/dt";
 		X : SINGLE FLAGS = "o" COMMENT = "x";
 		T : DOUBLE FLAGS = "o" COMMENT = "last time step";
 		DT : SINGLE FLAGS = "o" COMMENT = "last time span";
 		XTR : SINGLE FLAGS = "i" COMMENT = "tracking value";
-		KI : SINGLE FLAGS = "i" COMMENT = "integration coefficient";
-		DTM : SINGLE FLAGS = "i" COMMENT = "max dt allowed";
-		XM : SINGLE FLAGS = "i" COMMENT = "max x allowed";
-		XL : SINGLE FLAGS = "i" COMMENT = "min x allowed";
+		KI : SINGLE FLAGS = "i" COMMENT = "integration coefficient" INITIALVALUE=1.0;
+		DTM : SINGLE FLAGS = "i" COMMENT = "max dt allowed" INITIALVALUE=10.0;
+		XM : SINGLE FLAGS = "i" COMMENT = "max x allowed" INITIALVALUE=1.0e19;
+		XL : SINGLE FLAGS = "i" COMMENT = "min x allowed" INITIALVALUE=-1.0e19;
 		ERROR : INT FLAGS = "o" COMMENT = "error code";
 	END_VARIABLES;
 	OPERATIONS
-		constructor: C_FUNCTION <OV_FNC_CONSTRUCTOR>;
 		typemethod : C_FUNCTION <FB_FNC_TYPEMETHOD>;
 	END_OPERATIONS;
 END_CLASS;
@@ -78,8 +78,9 @@ END_CLASS;
 
 CLASS pi : CLASS fb/functionblock
 	IS_INSTANTIABLE;
+	FLAGS="i";
 	VARIABLES
-		EN : INT FLAGS = "i" COMMENT = "enables Run-Modus";
+		EN : INT FLAGS = "i" COMMENT = "enables Run-Modus" INITIALVALUE=1;
 		ENO : INT FLAGS = "o" COMMENT = "shows run-modus";
 		W : SINGLE FLAGS = "i" COMMENT = "w";
 		X : SINGLE FLAGS = "i" COMMENT = "x";
@@ -89,16 +90,15 @@ CLASS pi : CLASS fb/functionblock
 		T : DOUBLE FLAGS = "o" COMMENT = "last time step";
 		DT : SINGLE FLAGS = "o" COMMENT = "last time span";
 		YTR : SINGLE FLAGS = "i" COMMENT = "tracking value";
-		KP : SINGLE FLAGS = "i" COMMENT = "kp value input";
-		KI : SINGLE FLAGS = "i" COMMENT = "integration coefficient";
-		DTM : SINGLE FLAGS = "i" COMMENT = "max dt allowed";
-		YMAX : SINGLE FLAGS = "i" COMMENT = "max y allowed";
-		YMIN : SINGLE FLAGS = "i" COMMENT = "min y allowed";
+		KP : SINGLE FLAGS = "i" COMMENT = "kp value input" INITIALVALUE=1.0;
+		KI : SINGLE FLAGS = "i" COMMENT = "integration coefficient" INITIALVALUE=1.0;
+		DTM : SINGLE FLAGS = "i" COMMENT = "max dt allowed" INITIALVALUE=10.0;
+		YMAX : SINGLE FLAGS = "i" COMMENT = "max y allowed" INITIALVALUE=100.0;
+		YMIN : SINGLE FLAGS = "i" COMMENT = "min y allowed" INITIALVALUE=-100.0;
 		LIMV : INT FLAGS = "o" COMMENT = "limitation violation code";
 		TIMV : INT FLAGS = "o" COMMENT = "timing violation code";
 	END_VARIABLES;
 	OPERATIONS
-		constructor: C_FUNCTION <OV_FNC_CONSTRUCTOR>;
 		typemethod : C_FUNCTION <FB_FNC_TYPEMETHOD>;
 	END_OPERATIONS;
 END_CLASS;
@@ -108,41 +108,40 @@ END_CLASS;
 
 CLASS pt1 : CLASS fb/functionblock
 	IS_INSTANTIABLE;
+	FLAGS="i";
 	VARIABLES
-		EN : INT FLAGS = "i" COMMENT = "enables Run-Modus";
+		EN : INT FLAGS = "i" COMMENT = "enables Run-Modus" INITIALVALUE=1;
 		ENO : INT FLAGS = "o" COMMENT = "shows run-modus";
 		XIN : SINGLE FLAGS = "i" COMMENT = "input value";
 		XOUT : SINGLE FLAGS = "o" COMMENT = "output value";
 		T : DOUBLE FLAGS = "o" COMMENT = "last time step";
 		DT : SINGLE FLAGS = "o" COMMENT = "last time span";
 		X0 : SINGLE FLAGS = "i" COMMENT = "start value";
-		KP : SINGLE FLAGS = "i" COMMENT = "K parameter";
-		T1 : SINGLE FLAGS = "i" COMMENT = "T1 parameter";
-		DTM : SINGLE FLAGS = "i" COMMENT = "max dt allowed";
+		KP : SINGLE FLAGS = "i" COMMENT = "K parameter" INITIALVALUE=1.0;
+		T1 : SINGLE FLAGS = "i" COMMENT = "T1 parameter" INITIALVALUE=1.0;
+		DTM : SINGLE FLAGS = "i" COMMENT = "max dt allowed" INITIALVALUE=10.0;
 		TIMV : INT FLAGS = "o" COMMENT = "timing violation code";
 	END_VARIABLES;
 	OPERATIONS
-		constructor: C_FUNCTION <OV_FNC_CONSTRUCTOR>;
 		typemethod : C_FUNCTION <FB_FNC_TYPEMETHOD>;
 	END_OPERATIONS;
 END_CLASS;
 
 CLASS diff : CLASS fb/functionblock
 	IS_INSTANTIABLE;
+	FLAGS="i";
 	VARIABLES
-		EN : INT FLAGS = "i" COMMENT = "enables Run-Modus";
+		EN : INT FLAGS = "i" COMMENT = "enables Run-Modus" INITIALVALUE=1;
 		ENO : INT FLAGS = "o" COMMENT = "shows run-modus";
 		XIN : SINGLE FLAGS = "i" COMMENT = "input value";
 		XOUT : SINGLE FLAGS = "o" COMMENT = "output value";
+		KD : SINGLE FLAGS = "i" COMMENT = "differentiation coefficient" INITIALVALUE=1.0;
 		timeold : TIME FLAGS = "n" COMMENT = "output value";
 		xold : SINGLE FLAGS = "n" COMMENT = "input value";
 		END_VARIABLES;
 	OPERATIONS
-		constructor: C_FUNCTION <OV_FNC_CONSTRUCTOR>;
 		typemethod : C_FUNCTION <FB_FNC_TYPEMETHOD>;
 	END_OPERATIONS;
 END_CLASS;
-
- 
 
 END_LIBRARY;

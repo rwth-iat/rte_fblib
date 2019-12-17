@@ -64,30 +64,6 @@
 #include "ACPLTlab003lindyn.h"
 #include "ov_macros.h"
 
-OV_RESULT OV_DLLFNCEXPORT ACPLTlab003lindyn_int_constructor(
-	OV_INSTPTR_ov_object	pobj
-) {
-	OV_RESULT res;
-	OV_INSTPTR_ACPLTlab003lindyn_int pint;
-
-	res = fb_functionblock_constructor(pobj);
-	if (Ov_Fail(res)) return res;
-	pint = Ov_StaticPtrCast(ACPLTlab003lindyn_int, pobj);
-	pint->v_XM = 1e19;
-	pint->v_XL = -1e19;
-	pint->v_DTM = 10;
-	pint->v_KI = 1;
-	pint->v_XTR = 0;
-	pint->v_X  = 0;
-	pint->v_DX = 0;
-	pint->v_T = 0;
-	pint->v_DT = 0;
-	pint->v_EN = 1;
-	pint->v_ENO = 0;
-	pint->v_iexreq = 1;
-	return OV_ERR_OK;
-}
-
 void OV_DLLFNCEXPORT ACPLTlab003lindyn_int_typemethod(
 	OV_INSTPTR_fb_functionblock	pfb,
 	OV_TIME						*pltc
