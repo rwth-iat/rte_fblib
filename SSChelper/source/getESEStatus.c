@@ -36,27 +36,51 @@ OV_DLLFNCEXPORT void SSChelper_getESEStatus_typemethod(
     OV_INSTPTR_SSChelper_getESEStatus pinst = Ov_StaticPtrCast(SSChelper_getESEStatus, pfb);
     OV_INSTPTR_ov_object ese = NULL;
     OV_INSTPTR_fb_functionchart eseChart= NULL;
-    OV_ANY tempvar;
+    OV_ANY tempvar = OV_ANY_INIT;
 
-    if(pinst->v_path!= NULL){
-    	ese = ov_path_getobjectpointer(pinst->v_path,2);
-    	if(Ov_CanCastTo(fb_functionchart,ese)){
-    		eseChart=Ov_DynamicPtrCast(fb_functionchart,ese);
+	if (pinst->v_path != NULL) {
+		ese = ov_path_getobjectpointer(pinst->v_path, 2);
+		if (Ov_CanCastTo(fb_functionchart, ese)) {
+			eseChart = Ov_DynamicPtrCast(fb_functionchart, ese);
 
-    		ov_memstack_lock();
-    		fb_functionchart_getport(eseChart,"OCCUPIED",&tempvar);
-    		ov_string_setvalue(&(pinst->v_OCCUPIED),tempvar.value.valueunion.val_string);
-    		fb_functionchart_getport(eseChart,"OCCST",&tempvar);
-    		ov_string_setvalue(&(pinst->v_OCCST),tempvar.value.valueunion.val_string);
-    		fb_functionchart_getport(eseChart,"EXST",&tempvar);
-    		ov_string_setvalue(&(pinst->v_EXST),tempvar.value.valueunion.val_string);
-    		fb_functionchart_getport(eseChart,"EXMODE",&tempvar);
-    		ov_string_setvalue(&(pinst->v_EXMODE),tempvar.value.valueunion.val_string);
-    		fb_functionchart_getport(eseChart,"OPMODE",&tempvar);
-    		ov_string_setvalue(&(pinst->v_OPMODE),tempvar.value.valueunion.val_string);
-    		fb_functionchart_getport(eseChart,"WORKST",&tempvar);
-    		ov_string_setvalue(&(pinst->v_WORKST),tempvar.value.valueunion.val_string);
-    		ov_memstack_unlock();
+			ov_memstack_lock();
+			if (Ov_OK(fb_functionchart_getport(eseChart, "OCCUPIED", &tempvar)) &&
+				((tempvar.value.vartype & OV_VT_KSMASK) == OV_VT_STRING)) {
+				ov_string_setvalue(&(pinst->v_OCCUPIED), tempvar.value.valueunion.val_string);
+			} else {
+				ov_string_setvalue(&(pinst->v_OCCUPIED), NULL);
+			}
+			if (Ov_OK(fb_functionchart_getport(eseChart, "OCCST", &tempvar)) &&
+				((tempvar.value.vartype & OV_VT_KSMASK) == OV_VT_STRING)) {
+				ov_string_setvalue(&(pinst->v_OCCST), tempvar.value.valueunion.val_string);
+			} else {
+				ov_string_setvalue(&(pinst->v_OCCST), NULL);
+			}
+			if (Ov_OK(fb_functionchart_getport(eseChart, "EXST", &tempvar)) &&
+				((tempvar.value.vartype & OV_VT_KSMASK) == OV_VT_STRING)) {
+				ov_string_setvalue(&(pinst->v_EXST), tempvar.value.valueunion.val_string);
+			} else {
+				ov_string_setvalue(&(pinst->v_EXST), NULL);
+			}
+			if (Ov_OK(fb_functionchart_getport(eseChart, "EXMODE", &tempvar)) &&
+				((tempvar.value.vartype & OV_VT_KSMASK) == OV_VT_STRING)) {
+				ov_string_setvalue(&(pinst->v_EXMODE), tempvar.value.valueunion.val_string);
+			} else {
+				ov_string_setvalue(&(pinst->v_EXMODE), NULL);
+			}
+			if (Ov_OK(fb_functionchart_getport(eseChart, "OPMODE", &tempvar)) &&
+				((tempvar.value.vartype & OV_VT_KSMASK) == OV_VT_STRING)) {
+				ov_string_setvalue(&(pinst->v_OPMODE), tempvar.value.valueunion.val_string);
+			} else {
+				ov_string_setvalue(&(pinst->v_OPMODE), NULL);
+			}
+			if (Ov_OK(fb_functionchart_getport(eseChart, "WORKST", &tempvar)) &&
+				((tempvar.value.vartype & OV_VT_KSMASK) == OV_VT_STRING)) {
+				ov_string_setvalue(&(pinst->v_WORKST), tempvar.value.valueunion.val_string);
+			} else {
+				ov_string_setvalue(&(pinst->v_WORKST), NULL);
+			}
+			ov_memstack_unlock();
 
     		return;
     	}

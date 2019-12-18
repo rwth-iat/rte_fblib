@@ -35,22 +35,30 @@ OV_DLLFNCEXPORT void SSChelper_getSCUinfo_typemethod(
     */
     OV_INSTPTR_SSChelper_getSCUinfo pinst = Ov_StaticPtrCast(SSChelper_getSCUinfo, pfb);
     OV_INSTPTR_ov_object temp= NULL;
-    OV_INSTPTR_fb_functionchart pCSU= NULL;
-    OV_ANY tempvar;
+    OV_INSTPTR_fb_functionchart pSCU= NULL;
+    OV_ANY tempvar = OV_ANY_INIT;
     if(pinst->v_path!= NULL){
     	temp=ov_path_getobjectpointer(pinst->v_path,2);
     	if(Ov_CanCastTo(fb_functionchart,temp)){
-    		pCSU=Ov_DynamicPtrCast(fb_functionchart,temp);
+			pSCU=Ov_DynamicPtrCast(fb_functionchart, temp);
     		temp=NULL;
     		ov_memstack_lock();
-    		fb_functionchart_getport(pCSU,"workState",&tempvar);
-    		ov_string_setvalue(&(pinst->v_workingState),tempvar.value.valueunion.val_string);
-    		fb_functionchart_getport(pCSU,"occupiedBy",&tempvar);
-    		ov_string_setvalue(&(pinst->v_occupiedBy),tempvar.value.valueunion.val_string);
-    		//fb_functionchart_getport(pCSU,"setPoint",&tempvar);
+			if (Ov_OK(fb_functionchart_getport(pSCU, "workState", &tempvar)) &&
+				((tempvar.value.vartype & OV_VT_KSMASK) == OV_VT_STRING)) {
+				ov_string_setvalue(&(pinst->v_workingState), tempvar.value.valueunion.val_string);
+			} else {
+				ov_string_setvalue(&(pinst->v_workingState), NULL);
+			}
+			if (Ov_OK(fb_functionchart_getport(pSCU, "occupiedBy", &tempvar)) &&
+				((tempvar.value.vartype & OV_VT_KSMASK) == OV_VT_STRING)) {
+				ov_string_setvalue(&(pinst->v_occupiedBy), tempvar.value.valueunion.val_string);
+			} else {
+				ov_string_setvalue(&(pinst->v_occupiedBy), NULL);
+			}
+    		//fb_functionchart_getport(pSCU,"setPoint",&tempvar);
     		//if(tempvar.value.valueunion.val_single){
     		//pinst->v_SetPoint=tempvar.value.valueunion.val_single;}
-    		//fb_functionchart_getport(pCSU,"error",&tempvar);
+    		//fb_functionchart_getport(pSCU,"error",&tempvar);
     		//if(tempvar.value.valueunion.val_bool){
     		//pinst->v_SetPoint=tempvar.value.valueunion.val_bool;}
     		ov_memstack_unlock();
