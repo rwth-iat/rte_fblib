@@ -38,7 +38,7 @@
 
 
 
-/************************auswahl (binär oder mux) macros NICHT für strings, time und time_span anwenden***************************/
+/************************auswahl (binÃ¤r oder mux) macros NICHT fÃ¼r strings, time und time_span anwenden***************************/
 
 #define STDFB_SEL(idcap, idsmall, sel_in)	\
 	case OV_VT_##idcap:	\
@@ -64,7 +64,7 @@
 		}	\
 	break;	
 	
-/***************************spezielle macros für strings und times********************************/
+/***************************spezielle macros fÃ¼r strings und times********************************/
 	
 #define STDFB_SEL_STR(sel_in)	\
 	case OV_VT_STRING:	\

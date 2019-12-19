@@ -45,7 +45,7 @@
 
 #include <float.h>
 
-/*****Speicher von vektor freigeben und union nullen (pointer!); benötig iterator i******/
+/*****Speicher von vektor freigeben und union nullen (pointer!); benÃ¶tig iterator i******/
 /**************** Neu als Funktion aufgesetzt um speicherbedarf zu verringern OV_RESULT iec61131stdfb_freeVec(OV_ANY* pobj) ***/
 
 #define STDFB_FREE_VEC(pobj) \
@@ -88,7 +88,7 @@ switch(pobj.value.vartype & OV_VT_KSMASK) { \
 	}	\
 	pobj.value.valueunion.val_double = 0;
 	
-/*************Umwandlung double in single mit wertebereichsprüfung*****/
+/*************Umwandlung double in single mit wertebereichsprÃ¼fung*****/
 	
 #define STDFB_CONV_DBL_FLT(dbl, flt)	\
 	if(dbl > FLT_MAX)	\
@@ -107,7 +107,7 @@ switch(pobj.value.vartype & OV_VT_KSMASK) { \
 		
 
 		
-/************** Statusbehandlung für 2 inputs; kommentare siehe state_2in.c********************************/
+/************** Statusbehandlung fÃ¼r 2 inputs; kommentare siehe state_2in.c********************************/
 
 #define STDFB_STATES_2_INPUTS	\
 	if((pinst->v_IN1.value.vartype & OV_VT_HAS_STATE)	\
@@ -148,7 +148,7 @@ switch(pobj.value.vartype & OV_VT_KSMASK) { \
 		}			
 		
 		
-/***************** zeitstempelbehandlung für 2 inputs, kommentare siehe state_2in.c ************************/
+/***************** zeitstempelbehandlung fÃ¼r 2 inputs, kommentare siehe state_2in.c ************************/
 
 #define STDFB_TIMESTAMP_2_INPUTS	\
 		if((pinst->v_IN1.value.vartype & OV_VT_HAS_TIMESTAMP)	\
@@ -196,7 +196,7 @@ switch(pobj.value.vartype & OV_VT_KSMASK) { \
 		}
 		
 	
-/************** Statusbehandlung für einen Input ********************************/
+/************** Statusbehandlung fÃ¼r einen Input ********************************/
 #ifdef STDFB_STATE_CHECK
 
 #define STDFB_STATE(num_in)	\
@@ -218,7 +218,7 @@ switch(pobj.value.vartype & OV_VT_KSMASK) { \
 	}*/		//states are not passed on
 
 	
-/***************** Zeitstempelbehandlung für einen input ************************/
+/***************** Zeitstempelbehandlung fÃ¼r einen input ************************/
 
 #define STDFB_TIMESTAMP(num_in)	\
 	if(pinst->v_##num_in.value.vartype & OV_VT_HAS_TIMESTAMP)	\
@@ -228,7 +228,7 @@ switch(pobj.value.vartype & OV_VT_KSMASK) { \
 		pinst->v_OUT.time.usecs = pinst->v_##num_in.time.usecs;	\
 	}
 		
-/***************** Zeitstempelbehandlung für neu generierung ************************/
+/***************** Zeitstempelbehandlung fÃ¼r neu generierung ************************/
 
 #define STDFB_TIMESTAMP_NEW	\
 	if((pinst->v_IN1.value.vartype & OV_VT_HAS_TIMESTAMP) || (pinst->v_IN1.value.vartype & OV_VT_HAS_TIMESTAMP))	\
@@ -242,7 +242,7 @@ switch(pobj.value.vartype & OV_VT_KSMASK) { \
 #define STDFB_LE_TIME_SPAN(one, two)	\
 	((one.secs < two.secs) || ((one.secs == two.secs ) && (one.usecs <= two.usecs)))
 	
-/************* Einschließen der weiteren Macro-dateien**************/		
+/************* EinschlieÃŸen der weiteren Macro-dateien**************/		
 
 
 

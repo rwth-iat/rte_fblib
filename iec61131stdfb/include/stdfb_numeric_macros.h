@@ -269,7 +269,7 @@
 		return;	\
 	}	
 	
-/********Natürliche Exponentiation von vektorlementen*********/
+/********NatÃ¼rliche Exponentiation von vektorlementen*********/
 	
 #define STDFB_VEC_EXP_D \
 	pinst->v_OUT.value.vartype = OV_VT_DOUBLE_VEC;	\

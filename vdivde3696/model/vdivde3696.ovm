@@ -29,7 +29,7 @@
 *
 *	Autoren:
 *	--------
-*	AM						Ansgar Münnemann <Ansgar@plt.rwth-aachen.de>
+*	AM						Ansgar MÃ¼nnemann <Ansgar@plt.rwth-aachen.de>
 *	AN						Alexander Neugebauer, LTSoft, Kerpen
 *	FU						Felix Uecker
 *	St						Stefan Schmitz <StefanS@plt.rwth-aachen.de>
@@ -40,14 +40,14 @@
 *		-	Erstellung
 *
 *	29-Januar-2003		AM
-*		-	Überarbeitung, Defaultwerte
+*		-	Ãœberarbeitung, Defaultwerte
 *
 *	23-September-2004	St		V0.50
-*		-	Einfügen der Ausschaltverzögerung tof1
+*		-	EinfÃ¼gen der AusschaltverzÃ¶gerung tof1
 *
 *	21-Dezember-2004	St		V0.51
-*		-	Logik im Baustein XOR gemäß IEC 1131-3
-*		-	Basisklasse eingeführt
+*		-	Logik im Baustein XOR gemÃ¤ÃŸ IEC 1131-3
+*		-	Basisklasse eingefÃ¼hrt
 *
 *	15-April-2005		St		V0.5.2
 *		-	Erweiterung um ein Linux-Makefile
@@ -60,9 +60,9 @@
 LIBRARY vdivde3696
 
 	VERSION   = "V0.5.2 (15-Apr-2005)";
-	AUTHOR    = "F. Uecker, A. Neugebauer, A. Münnemann, St. Schmitz";
+	AUTHOR    = "F. Uecker, A. Neugebauer, A. MÃ¼nnemann, St. Schmitz";
 	COPYRIGHT = "Copyright (C) 2005 Lehrstuhl fuer Prozessleittechnik, RWTH Aachen";
-	COMMENT   = "Funktionsbausteine gemäß VDI/VDE 3696";
+	COMMENT   = "Funktionsbausteine gemÃ¤ÃŸ VDI/VDE 3696";
 	
 /***********************************************************************
 	BaseClass - VDI/VDE 3696-Basisklasse
@@ -1167,7 +1167,7 @@ CLASS seo : CLASS fb/functionblock
 		omega0 : SINGLE FLAGS = "i" UNIT = "1/s" COMMENT = "characteristic angular frequency";
 		theta : SINGLE FLAGS = "i" COMMENT = "attenuation ratio";
 		b1 : SINGLE FLAGS = "i" UNIT = "s" COMMENT = "derivartive time";
-		b2 : SINGLE FLAGS = "i" UNIT = "s²" COMMENT = "count coefficient";
+		b2 : SINGLE FLAGS = "i" UNIT = "sÂ²" COMMENT = "count coefficient";
 		v0 : SINGLE FLAGS = "i" COMMENT = "reset value of v(0)";
 		vm1 : SINGLE FLAGS = "i" COMMENT = "reset value of v(-1)";
 		reset : BOOL FLAGS = "i" COMMENT = "reset to v0,vm1";
@@ -1264,12 +1264,12 @@ CLASS tan : CLASS fb/functionblock
 END_CLASS;
 
 /***********************************************************************
-	tof1 - Ausschaltverzögerung (off delay)
+	tof1 - AusschaltverzÃ¶gerung (off delay)
 ***********************************************************************/
 
 	CLASS tof1 : CLASS fb/functionblock
 		IS_INSTANTIABLE;
-		COMMENT = "Ausschaltverzögerung (off delay)";
+		COMMENT = "AusschaltverzÃ¶gerung (off delay)";
 		VARIABLES
 			/*	Inputs ****************************************************/
 			i			:	BOOL			FLAGS = "i"
@@ -1333,7 +1333,7 @@ CLASS tp1 : CLASS fb/functionblock
 END_CLASS;
 
 /***********************************************************************
-	xor - exklusive ODER-Verknüpfung (Boolean exclusive OR)
+	xor - exklusive ODER-VerknÃ¼pfung (Boolean exclusive OR)
 ***********************************************************************/
 
 	CLASS xor : CLASS vdivde3696/BaseClass
