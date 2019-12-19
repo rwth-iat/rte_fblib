@@ -46,8 +46,6 @@
 #include "ov_logfile.h"
 #include "helper.h"
 
-#define OV_DEBUG
-
 OV_RESULT
 iec61131stdfb_MIN_setType
 (OV_INSTPTR_iec61131stdfb_MIN pobj, OV_VAR_TYPE type)

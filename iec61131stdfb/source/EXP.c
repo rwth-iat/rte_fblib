@@ -39,9 +39,6 @@
 #define OV_COMPILE_LIBRARY_iec61131stdfb
 #endif
 
-
-#define OV_DEBUG
-
 #include "iec61131stdfb.h"
 #include "stdfb_macros.h"
 #include "ov_macros.h"

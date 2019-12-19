@@ -46,8 +46,6 @@
 #include "ov_malloc.h"
 #include "ov_string.h"
 
-#define OV_DEBUG
-
 OV_DLLFNCEXPORT OV_RESULT iec61131stdfb_DELETE_IN_set(
     OV_INSTPTR_iec61131stdfb_DELETE          pobj,
     const OV_STRING  value

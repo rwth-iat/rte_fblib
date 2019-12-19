@@ -46,10 +46,6 @@
 #include "ov_logfile.h"
 #include "helper.h"
 
-
-
-#define OV_DEBUG
-
 OV_DLLFNCEXPORT OV_RESULT iec61131stdfb_SEL_G_set(
     OV_INSTPTR_iec61131stdfb_SEL          pobj,
     const OV_BOOL  value

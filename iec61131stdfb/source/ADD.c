@@ -52,8 +52,6 @@
 #include <math.h>
 #include <float.h>
 
-#define OV_DEBUG
-
 OV_RESULT
 iec61131stdfb_ADD_setType
 (OV_INSTPTR_iec61131stdfb_ADD pobj, OV_VAR_TYPE type)

@@ -46,8 +46,6 @@
 #include "ov_logfile.h"
 #include "helper.h"
 
-#define OV_DEBUG
-
 
 OV_DLLFNCEXPORT OV_RESULT iec61131stdfb_LIMIT_MN_set(
     OV_INSTPTR_iec61131stdfb_LIMIT          pobj,
