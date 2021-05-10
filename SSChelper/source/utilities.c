@@ -37,37 +37,6 @@ static void extractBehindSeperator(const OV_STRING inputstring, OV_STRING *pathn
 	return;
 }
 
-OV_INSTPTR_ov_object getrelativeobjectpointer(
-		const OV_STRING			startPoint,
-		const OV_STRING			pathname
-) {
-	/*
-	 *	local variables
-	 */
-	OV_PATH		path;
-	OV_ELEMENT	element;
-	OV_PATH     startPointPath;
-	ov_memstack_lock();
-	ov_path_resolve(&startPointPath, NULL, startPoint, 2);
-
-	/*
-	 *	instructions
-	 */
-	if(Ov_Fail(ov_path_resolve(&path, &startPointPath, pathname, 2))) {
-		//	bad path
-		ov_memstack_unlock();
-		return NULL;
-	}
-	element = path.elements[path.size-1];
-
-	ov_memstack_unlock();
-	if(element.elemtype == OV_ET_OBJECT) {
-		return element.pobj;
-	}
-	//	not an object path
-	return NULL;
-}
-
 OV_RESULT SSChelper_getObjectAndVarnameFromSetVariable(
 		const OV_INSTPTR_ov_object pinst,
 		const OV_STRING nameToCheck,
