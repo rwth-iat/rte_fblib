@@ -1,0 +1,73 @@
+name: build
+
+on:
+  push:
+    branches: [ master, develop, ov3 ]
+  pull_request:
+    branches: [ master, develop, ov3 ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install additional build dependencies
+      run: |
+        sudo apt-get install -y --no-install-recommends tcl
+    - name: Checkout RTE project
+      uses: actions/checkout@v2
+      with:
+        repository: acplt/rte
+        ref: ov3
+        path: rte
+    - name: Build RTE project
+      run: |
+        cd rte
+        mkdir build
+        cd build
+        cmake ..
+        make -j 3
+    - name: Build
+      run: |
+        mkdir build
+        cd build
+        cmake -DCMAKE_PREFIX_PATH="$(pwd)/../rte/build" ..
+        make -j 3
+
+  build-msvc:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Install Magicsplat Tcl
+      run: |
+        Invoke-WebRequest -Uri "https://sourceforge.net/projects/magicsplat/files/magicsplat-tcl/tcl-8.6.11-installer-1.11.2-x64.msi/download" -OutFile tcl-installer.msi -UserAgent "NativeHost"
+        msiexec /passive /i tcl-installer.msi
+    - name: Install WinFlexBison
+      run: |
+        Invoke-WebRequest -Uri "https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip" -OutFile win_flex_bison.zip
+        mkdir flex_bison
+        Expand-Archive win_flex_bison.zip -DestinationPath flex_bison
+        Add-Content $env:GITHUB_PATH "$pwd\flex_bison"
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+    - name: Checkout RTE project
+      uses: actions/checkout@v2
+      with:
+        repository: acplt/rte
+        ref: ov3
+        path: rte
+    - name: build RTE project
+      run: |
+        cd rte
+        mkdir build
+        cd build
+        cmake ..
+        msbuild.exe INSTALL.vcxproj
+    - name: build
+      run: |
+        mkdir build
+        cd build
+        cmake -DCMAKE_PREFIX_PATH="$pwd\..\rte\build" ..
+        msbuild.exe INSTALL.vcxproj
