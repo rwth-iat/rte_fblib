@@ -6,7 +6,7 @@ build:
     # First clone and build rte (using equally named branch or `develop`)
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@git.rwth-aachen.de/acplt/rte-tools/rte.git
     - cd rte
-    - git checkout ${CI_COMMIT_REF_NAME} || git checkout ov3
+    - git checkout ${CI_COMMIT_REF_NAME} || git checkout master
     - mkdir build
     - cd build
     - cmake ..
